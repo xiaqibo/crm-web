@@ -32,9 +32,6 @@ import { DepartmentApi } from '@/api/modules/department'
 import { CirclePlus, EditPen, Delete } from '@element-plus/icons-vue'
 import { useHandleData } from '@/hooks/useHandleData' // 确保已导入
 import DepartmentDialog from './components/DepartmentDialog.vue'
-import { useDepartmentStore } from '@/store/modules/department'
-
-const departmentStore = useDepartmentStore()
 // 获取 ProTable 元素，调用其获取刷新数据方法（还能获取到当前查询参数，方便导出携带参数）
 const proTable = ref()
 
@@ -65,13 +62,6 @@ const columns: ColumnProps[] = [
     prop: 'createTime',
     label: '创建时间',
     width: 200
-  },
-  {
-    prop: 'departId',
-    label: '所属部门',
-    enum: departmentStore.departmentList,
-    fieldNames: { label: 'name', value: 'id' },
-    search: { el: 'cascader', span: 2, props: { props: { checkStrictly: true }, filterable: true } }
   },
   { prop: 'operation', label: '操作', fixed: 'right', width: 330 }
 ]
