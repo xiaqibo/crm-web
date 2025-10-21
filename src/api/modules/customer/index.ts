@@ -14,5 +14,7 @@ export const CustomerApi = {
   export: (params: any) =>
     http.post(COMMON_ADMIN_API + '/customer/export', params, {
       responseType: 'blob' // 必须，否则下载乱码
-    })
+    }),
+  toPublic: (params: any) => http.post(COMMON_ADMIN_API + '/customer/toPublic', params),
+  toPrivate: (params: any) => http.post(COMMON_ADMIN_API + '/customer/toPrivate', params)
 }
