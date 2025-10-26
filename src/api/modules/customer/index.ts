@@ -9,12 +9,7 @@ export const CustomerApi = {
   list: (params: any) => http.post(COMMON_ADMIN_API + '/customer/list', params),
   saveOrEdit: (params: any) => http.post(COMMON_ADMIN_API + '/customer/saveOrUpdate', params),
   remove: (params: any) => http.post(COMMON_ADMIN_API + '/customer/remove', params),
-
-  // ✅ 新增导出接口（关键）
-  export: (params: any) =>
-    http.post(COMMON_ADMIN_API + '/customer/export', params, {
-      responseType: 'blob' // 必须，否则下载乱码
-    }),
+  export: (params: any) => http.post(COMMON_ADMIN_API + '/customer/export', params, { responseType: 'blob' }),
   toPublic: (params: any) => http.post(COMMON_ADMIN_API + '/customer/toPublic', params),
   toPrivate: (params: any) => http.post(COMMON_ADMIN_API + '/customer/toPrivate', params)
 }

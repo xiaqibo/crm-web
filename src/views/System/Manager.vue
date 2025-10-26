@@ -39,7 +39,6 @@ import { getRoleList } from '@/api/modules/role'
 import { useDepartmentStore } from '@/store/modules/department'
 
 const departmentStore = useDepartmentStore()
-
 // 获取 ProTable 元素，调用其获取刷新数据方法（还能获取到当前查询参数，方便导出携带参数）
 const proTable = ref()
 
@@ -78,18 +77,18 @@ const columns: ColumnProps<SysManager.ResManagerList>[] = [
     search: { el: 'input' }
   },
   {
-    prop: 'departId',
-    label: '所属部门',
-    enum: departmentStore.departmentList,
-    fieldNames: { label: 'name', value: 'id' },
-    search: { el: 'cascader', span: 2, props: { props: { checkStrictly: true }, filterable: true } }
-  },
-  {
     prop: 'roleId',
     tag: true,
     label: '角色',
     enum: getRoleList,
     fieldNames: { label: 'name', value: 'id' }
+  },
+  {
+    prop: 'departId',
+    label: '所属部门',
+    enum: departmentStore.departmentList,
+    fieldNames: { label: 'name', value: 'id' },
+    search: { el: 'cascader', span: 2, props: { props: { checkStrictly: true }, filterable: true } }
   },
   {
     prop: 'status',

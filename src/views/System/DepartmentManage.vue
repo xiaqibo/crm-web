@@ -30,7 +30,7 @@ import { ColumnProps } from '@/components/ProTable/interface'
 import ProTable from '@/components/ProTable/index.vue'
 import { DepartmentApi } from '@/api/modules/department'
 import { CirclePlus, EditPen, Delete } from '@element-plus/icons-vue'
-import { useHandleData } from '@/hooks/useHandleData' // 确保已导入
+import { useHandleData } from '@/hooks/useHandleData'
 import DepartmentDialog from './components/DepartmentDialog.vue'
 // 获取 ProTable 元素，调用其获取刷新数据方法（还能获取到当前查询参数，方便导出携带参数）
 const proTable = ref()
@@ -65,13 +65,12 @@ const columns: ColumnProps[] = [
   },
   { prop: 'operation', label: '操作', fixed: 'right', width: 330 }
 ]
-
 // 打开 drawer(新增、查看、编辑)
 const dialogRef = ref()
 const openDrawer = (title: string, row: Partial<any> = {}) => {
   let params = {
     title,
-    row: { ...row } /*  */,
+    row: { ...row },
     isView: title === '查看',
     api: DepartmentApi.saveOrEdit,
     getTableList: proTable.value.getTableList,
